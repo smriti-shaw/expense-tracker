@@ -85,6 +85,7 @@ function myFunction() {
     var amount = amountInputElement.value;
 
     var expenseMap = new Map();
+    expenseMap.set("userId",122);
     expenseMap.set("userName",userName);
     expenseMap.set("expenseType",expenseType);
     expenseMap.set("expenseName",expenseName);
