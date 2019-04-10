@@ -14,47 +14,80 @@ createform.appendChild(line);
 var lineBreak = document.createElement('br');
 createform.appendChild(lineBreak);
 
-var namelable1 = document.createElement('label');
-namelable1.innerHTML = "Your name";
-namelable1.name = "name";
-createform.appendChild(namelable1);
+var username = document.createElement('label');
+username.innerHTML = "Your name";
+username.name = "name";
+createform.appendChild(username);
 
-
-var inputElement = document.createElement('input');
-createform.appendChild(inputElement);
-
+var nameInputElement = document.createElement('input');
+createform.appendChild(nameInputElement);
 
 var lineBreak = document.createElement('br');
 createform.appendChild(lineBreak);
 
-var namelable2 = document.createElement('label');
-namelable2.innerHTML = "Date of expense";
-createform.appendChild(namelable2);
 
-var x = document.createElement("INPUT");
-x.setAttribute("type", "date");
+var expenseType = document.createElement('label');
+expenseType.innerHTML = "Expense type";
+expenseType.name = "Expense type";
+createform.appendChild(expenseType);
+
+var expenseTypeInputElement = document.createElement('input');
+createform.appendChild(expenseTypeInputElement);
+
+var lineBreak = document.createElement('br');
+createform.appendChild(lineBreak);
+
+
+var expenseName = document.createElement('label');
+expenseName.innerHTML = "Expense name";
+expenseType.name = "Expense name";
+createform.appendChild(expenseName);
+
+var expenseNameInputElement = document.createElement('input');
+createform.appendChild(expenseNameInputElement);
+
+var lineBreak = document.createElement('br');
+createform.appendChild(lineBreak);
+
+
+var doe = document.createElement('label');
+doe.innerHTML = "Date of expense";
+createform.appendChild(doe);
+
+var doeInput = document.createElement("INPUT");
 x.setAttribute("id","dateofexp");
-createform.appendChild(x);
+createform.appendChild(doeInput);
 
 var lineBreak = document.createElement('br');
 createform.appendChild(lineBreak);
 
-var namelable3 = document.createElement('label');
-namelable3.innerHTML = "Amount";
-createform.appendChild(namelable3);
+var amount = document.createElement('label');
+amount.innerHTML = "Amount";
+createform.appendChild(amount);
 
-var inputElement = document.createElement('input');
-createform.appendChild(inputElement);
+var amountInputElement = document.createElement('input');
+createform.appendChild(amountInputElement);
 
 var lineBreak = document.createElement('br');
 createform.appendChild(lineBreak);
 
 var submitElement = document.createElement('input');
-submitElement.setAttribute("type","submit");
 submitElement.setAttribute('onclick', 'myFunction();' + onclick);
+submitElement.setAttribute("type","submit");
 createform.appendChild(submitElement);
 
 function myFunction() {
-    console.log("i m inside");
-    console.log(document.getElementById("dateofexp").value);
+
+    var userName = nameInputElement.value;
+    var expenseType = expenseTypeInputElement.value;
+    var expenseName = expenseNameInputElement.value;
+    var dateOfExpense = doeInput.value;
+    var amount = amountInputElement.value;
+
+    var expenseMap = new Map();
+    expenseMap.set("userName",userName);
+    expenseMap.set("expenseType",expenseType);
+    expenseMap.set("expenseName",expenseName);
+    expenseMap.set("dateOfExpense",dateOfExpense);
+    expenseMap.set("amount",amount);
 }
