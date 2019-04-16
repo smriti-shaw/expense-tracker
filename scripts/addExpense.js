@@ -1,3 +1,5 @@
+// import {addExpenseTrackerApp} from "../apiController/addExpenseController";
+
 var x = document.getElementById("expense_form");
 var createform = document.createElement('form');
 createform.setAttribute("action","");
@@ -91,4 +93,21 @@ function myFunction() {
     expenseMap.set("expenseName",expenseName);
     expenseMap.set("dateOfExpense",dateOfExpense);
     expenseMap.set("amount",amount);
+
+    const Http = new XMLHttpRequest();
+    const url='http://localhost:8080/expenses/expense';
+    Http.open("POST", url);
+    Http.setRequestHeader("Content-Type", "application/json");
+    Http.send(JSON.stringify({amount:
+            {amount:amount, currency :"INR"},
+        dateOfExpense: dateOfExpense,
+        expenseName : expenseName,
+        expenseType : expenseType,
+        userId : 1}));
+
+    Http.onreadystatechange=(e)=>{
+        console.log(Http.responseText),
+            console.log(Http.response)
+    }
+
 }
